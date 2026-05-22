@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(181, 65, 7);
+    --dark-bg: rgb(12, 19, 25);
+    --primary-light: #094de1;
+    --success: #28a745;
+    --danger: #dc3545;
+    --info: #17a2b8;
+}
+
+.container {
+    max-width: 1500px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: rgb(12, 19, 25);
+    z-index: 1000;
+    top: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.463);
+    padding: 20px 0;
+}
+
+.system-title {
+    font-size: 50px;
+    color: white;
+    margin-left: 50px;
+    font-family: 'Merriweather', serif;
+}
+
+.buttons-container {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn1, .btn2 {
+    padding: 10px;
+    background-color: rgb(181, 65, 7);
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border-radius: 20px;
+    border: none;
+}
+
+.btn1 a, .btn2 a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btn1:hover, .btn2:hover {
+    background-color: rgb(12, 19, 25);
+}
+
+body {
+    background: linear-gradient(rgba(84, 84, 84, 0.715), rgba(39, 39, 39, 0.775)), 
+                url('../img/digital-art-style-yoga-illustration.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.61);
+    border-radius: 8px;
+    padding: 40px 50px;
+    text-align: center;
+    border: 2px solid rgb(181, 65, 7);
+    margin: 200px auto 100px;
+}
+
+.login-title {
+    font-family: "Abril Fatface", serif;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: rgb(12, 19, 25);
+    font-style: italic;
+}
+
+.form {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input {
+    font-size: 14px;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: rgb(0, 42, 76) 1px solid;
+    border-radius: 4px;
+}
+
+.label {
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color: rgb(12, 19, 25);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.btn-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 16px 0;
+    border: none;
+    background-color: rgb(12, 19, 25);
+    font-family: "Poppins", sans-serif;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: rgb(181, 65, 7);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.footer {
+    background-color: rgb(12, 19, 25);
+    padding: 30px 0;
+    margin-top: auto;
+}
+
+.all {
+    color: rgb(135, 135, 135);
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.create {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.create a {
+    font-style: italic;
+    color: rgb(181, 65, 7);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.create a:hover {
+    text-decoration: underline;
+}
+
+.show-password-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 8px;
+    font-family: "Poppins", sans-serif;
+    margin-top: 5px;
+}
+
+#showPassword {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+#forgotPasswordContainer {
+    display: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(23, 162, 184, 0.1);
+    border-radius: 6px;
+    border-left: 3px solid #17a2b8;
+}
+
+#forgotPasswordContainer a {
+    color: #063e46;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#forgotPasswordContainer a:hover {
+    text-decoration: underline;
+}
+
+#timerDisplay {
+    display: none;
+    margin-top: 15px;
+    font-family: "Poppins", sans-serif;
+}
+
+#timerDisplay > div {
+    background: rgba(23, 162, 184, 0.1);
+    border-left: 4px solid #17a2b8;
+    color: #042125;
+}
+
+#lockoutTimeDisplay {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Status Messages */
+.message-container {
+    margin-bottom: 20px;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#errorContainer > div {
+    margin-bottom: 20px;
+    animation: slideDown 0.3s ease;
+}
+
+.status-message {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: "Poppins", sans-serif;
+}
+
+.status-message i {
+    font-size: 24px;
+}
+
+.status-message .message-content {
+    flex: 1;
+}
+
+.status-message .message-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.status-message .message-text {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.status-message.pending {
+    background: rgba(9, 77, 225, 0.15);
+    border-left-color: #094de1;
+    color: #094de1;
+}
+
+.status-message.pending i {
+    color: #094de1;
+}
+
+.status-message.blocked {
+    background: rgba(220, 53, 69, 0.15);
+    border-left-color: #dc3545;
+    color: #3b080d;
+}
+
+.status-message.blocked i {
+    color: #3a090e;
+}
+
+.status-message.rejected {
+    background: rgba(255, 71, 87, 0.15);
+    border-left-color: #300509;
+    color: #ff4757;
+}
+
+.status-message.rejected i {
+    color: #45090e;
+}
+
+.status-message.success {
+    background: rgba(40, 167, 69, 0.15);
+    border-left-color: #28a745;
+    color: #28a745;
+}
+
+.status-message.success i {
+    color: #28a745;
+}
+
+.status-message.info {
+    background: rgba(23, 162, 184, 0.15);
+    border-left-color: #17a2b8;
+    color: #081619;
+}
+
+.status-message.info i {
+    color: #071416;
+}
+
+.error-message {
+    background: rgba(255, 107, 107, 0.1);
+    color: #110505;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff6b6b;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.error-message i {
+    font-size: 18px;
+}
+
+.contact-support {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    font-size: 13px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-support a {
+    color: rgb(75, 28, 4);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-support a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .system-title {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+    
+    .buttons-container {
+        position: static;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    
+    .login-box {
+        padding: 30px 20px;
+        margin: 150px auto 50px;
+    }
+    
+    .btn1, .btn2 {
+        width: 80px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .system-title {
+        font-size: 24px;
+        margin-left: 10px;
+    }
+    
+    .login-title {
+        font-size: 24px;
+    }
+    
+    .input {
+        padding: 12px;
+    }
+    
+    .btn {
+        padding: 12px 0;
+    }
+}

@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+/* ========== RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ========== BODY ========== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+        url('../img/digital-art-style-yoga-illustration.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+/* ========== NAVBAR ========== */
+.navbar{
+    position  : fixed;             
+    width: 100%;      
+    background-color: rgb(12, 19, 25);
+    z-index: 1000;
+    top: 0; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.463);
+    padding: 20px 0 20px 0;
+}
+.system-title{
+    font-size: 50px;
+    color: white;
+    margin-left: 50px;
+    font-family: 'Merriweather', serif;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+    position: fixed;
+    top: 80px; /* below navbar */
+    left: 0;
+    width: 220px;
+    height: calc(100vh - 80px);
+    background: rgba(12,19,25,0.95);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    padding: 30px 20px;
+}
+
+.sidebar-header {
+    font-family: "Abril Fatface", serif;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+    margin-top: 12px;
+    color: rgb(181, 65, 7);
+}
+
+/* Sidebar Links */
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.sidebar a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.2),
+        rgba(255,255,255,0.5),
+        rgba(255,255,255,0.2)
+    );
+    transform: skewX(-20deg);
+    transition: 0.5s;
+}
+
+.sidebar a:hover::before {
+    left: 120%;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    background: rgb(181, 65, 7);
+}
+
+/* Logout Button */
+.btn-logout {
+    margin: 20px;
+    padding: 10px 0;
+    text-align: center;
+    background: rgb(181,65,7);
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background: rgb(12,19,25);
+    border: 1px solid #fff;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main {
+    margin-top: 50px;       /* navbar height */
+    margin-left: 220px;     /* sidebar width */
+    padding: 40px 30px;
+    min-height: calc(100vh - 80px);
+    text-align: center;
+}
+
+.main h2 {
+    margin-bottom: 25px;
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+/* ========== CALENDAR ========== */
+.calendar {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    backdrop-filter: blur(8px);
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+    padding: 10px;
+    text-align: center;
+}
+
+.calendar th {
+    color: #f0a500;
+    font-weight: 500;
+}
+
+.calendar td {
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.calendar td:hover {
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+}
+
+.calendar .today {
+    background: rgb(181,65,7);
+    border-radius: 50%;
+}
+
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-add-session {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #c24c00;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-add-session:hover {
+    background: #ff6600;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: rgba(30, 30, 30, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    width: 380px;
+    color: white;
+    box-shadow: 0px 0px 20px rgba(255, 102, 0, 0.5);
+    position: relative;
+}
+
+.modal-content h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ff6600;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.btn-save {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #ff6600;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-save:hover {
+    background: #c24c00;
+}
+
+.btn-edit {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #0077ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    background: #0055bb;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+}
+
+.close-btn:hover {
+    color: #ff6600;
+}
+.dots {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.session-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border-left: 5px solid #ff6600;
+}
+
+.session-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.edit-btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #0077ff;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #ff2e2e;
+    color: white;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #0055bb;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+}
+.calendar-header {
+    position: relative;
+    font-size: 20px;
+    padding: 12px;
+    color: orange;
+}
+
+.month-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: orange;
+}
+
+.nav-btn {
+    background: rgba(255, 102, 0, 0.9);
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #ff6600;
+    transform: scale(1.05);
+}
+
+
+/* ========== FOOTER ========== */
+.footer {
+    background-color: rgb(12, 19, 25);
+    padding: 25px 0;
+    margin-left: 220px;
+}
+
+.all {
+    color: rgb(135, 135, 135);
+    text-align: center;
+}

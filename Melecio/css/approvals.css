@@ -1,0 +1,468 @@
+
+        .approvals-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 70px 0;
+        }
+        
+        .approvals-container h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .approvals-container h1 i {
+            color: var(--primary-light);
+        }
+        
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 15px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tab:hover {
+            background: rgba(255, 102, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-color: transparent;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .pending-table,
+        .approved-table,
+        .rejected-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .pending-table th,
+        .approved-table th,
+        .rejected-table th {
+            padding: 15px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--primary-light);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .pending-table td,
+        .approved-table td,
+        .rejected-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+        }
+        
+        .pending-table tr:hover,
+        .approved-table tr:hover,
+        .rejected-table tr:hover {
+            background: rgba(181, 65, 7, 0.1);
+        }
+        
+        .badge {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        
+        .badge.pending {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+        
+        .badge.approved {
+            background: rgba(40, 167, 69, 0.15);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+        
+        .badge.rejected {
+            background: rgba(220, 53, 69, 0.15);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-approve,
+        .btn-reject,
+        .btn-view {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .btn-approve {
+            background: rgba(40, 167, 69, 0.15);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-approve:hover {
+            background: #28a745;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-reject {
+            background: rgba(220, 53, 69, 0.15);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+        
+        .btn-reject:hover {
+            background: #dc3545;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-view {
+            background: rgba(41, 182, 246, 0.15);
+            color: var(--info);
+            border: 1px solid rgba(41, 182, 246, 0.3);
+        }
+        
+        .btn-view:hover {
+            background: var(--info);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .rejection-reason {
+            max-width: 250px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .alert-success {
+            background: rgba(40, 167, 69, 0.15);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            color: #28a745;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 5000;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, var(--dark-bg), rgba(20, 30, 40, 0.95));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 35px;
+            max-width: 900px;
+            width: 95%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--primary-glow);
+            position: relative;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 10;
+        }
+        
+        .close-modal:hover {
+            color: var(--danger);
+            background: rgba(255, 61, 0, 0.15);
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            margin-bottom: 25px;
+        }
+        
+        .modal-header h2 {
+            font-size: 24px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal-header h2 i {
+            color: var(--primary-light);
+        }
+        
+        /* User Profile in Modal */
+        .user-profile-modal {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 25px;
+        }
+        
+        .profile-sidebar {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .profile-avatar {
+            font-size: 80px;
+            color: var(--primary-light);
+            margin-bottom: 15px;
+        }
+        
+        .profile-fullname {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+        
+        .profile-username {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+        
+        .profile-id {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .status-badge.pending {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+        
+        .status-badge.approved {
+            background: rgba(40, 167, 69, 0.15);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+        
+        .status-badge.rejected {
+            background: rgba(220, 53, 69, 0.15);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+        
+        .modal-info-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .modal-info-section h3 {
+            font-size: 16px;
+            color: var(--primary-light);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .modal-info-section h3 i {
+            font-size: 16px;
+        }
+        
+        .modal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .modal-info-item {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        .modal-info-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        
+        .modal-info-value {
+            font-size: 14px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .security-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .security-question {
+            font-size: 13px;
+            color: var(--primary-light);
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+        
+        .security-answer {
+            font-size: 13px;
+            color: var(--text-primary);
+            padding-left: 15px;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .btn-modal-cancel {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .btn-modal-cancel:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .loading-spinner {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+        
+        .loading-spinner i {
+            font-size: 30px;
+            color: var(--primary-light);
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .tab-container {
+                flex-direction: column;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-approve,
+            .btn-reject,
+            .btn-view {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .user-profile-modal {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    

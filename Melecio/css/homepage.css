@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap');
+
+/* ========== RESET & VARIABLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(181, 65, 7);
+    --primary-hover: rgb(255, 102, 0);
+    --primary-glow: rgba(255, 102, 0, 0.3);
+    --dark-bg: rgb(12, 19, 25);
+    --text-light: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.8);
+    --sand-color: #e6b87e;
+    --sand-light: #f5d0a9;
+    --sand-dark: #c49a6c;
+    --glass-color: rgba(173, 216, 230, 0.15);
+    --glass-highlight: rgba(255, 255, 255, 0.2);
+    --wood-color: #8b5a2b;
+    --wood-dark: #5d3e1e;
+    --wood-light: #b87c4b;
+}
+
+/* ========== BODY ========== */
+/* ========== BODY ========== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+        url('../img/digital-art-style-yoga-illustration.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+/* ========== NAVBAR ========== */
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: var(--dark-bg);
+    z-index: 1000;
+    top: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.463);
+    padding: 20px 0;
+}
+
+.system-title {
+    font-size: 50px;
+    color: white;
+    margin-left: 50px;
+    font-family: 'Merriweather', serif;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 15px;
+}
+
+.buttons-container button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.buttons-container button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.buttons-container button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.buttons-container button a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.btn1 {
+    background: transparent;
+    border: 2px solid var(--primary-color) !important;
+    color: white;
+}
+
+.btn1:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(181, 65, 7, 0.3);
+}
+
+.btn2 {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn2:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 102, 0, 0.4);
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* ========== HOURGLASS ========== */
+.hourglass-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.hourglass-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hourglass {
+    position: relative;
+    width: 200px;
+    height: 350px;
+    transform-style: preserve-3d;
+    transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.3));
+}
+
+.hourglass.flipping {
+    animation: flipShake 0.6s ease-in-out;
+}
+
+@keyframes flipShake {
+    0%, 100% { transform: rotateX(0deg) scale(1); }
+    25% { transform: rotateX(10deg) scale(1.05); }
+    75% { transform: rotateX(-10deg) scale(1.05); }
+}
+
+/* Hourglass Frame */
+.hourglass-frame {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba(255, 102, 0, 0.3);
+    border-radius: 60% 60% 40% 40% / 50% 50% 30% 30%;
+    box-shadow: 0 0 30px rgba(255, 102, 0, 0.2);
+    animation: frameGlow 3s ease-in-out infinite;
+}
+
+@keyframes frameGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Wooden ends */
+.hourglass-top,
+.hourglass-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: linear-gradient(135deg, var(--wood-light), var(--wood-dark));
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.hourglass-top {
+    top: -5px;
+}
+
+.hourglass-bottom {
+    bottom: -5px;
+}
+
+/* Side supports */
+.support {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    width: 15px;
+    background: linear-gradient(135deg, var(--wood-light), var(--wood-dark));
+    border-radius: 10px;
+    z-index: 5;
+}
+
+.left-support {
+    left: 10px;
+    transform: rotate(5deg);
+}
+
+.right-support {
+    right: 10px;
+    transform: rotate(-5deg);
+}
+
+/* Glass bulbs */
+.glass {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--glass-color);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        inset 0 -10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 10px 20px rgba(255, 255, 255, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.top-bulb {
+    top: 30px;
+}
+
+.bottom-bulb {
+    bottom: 30px;
+}
+
+/* Bulb reflections */
+.bulb-reflection {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+    height: 30%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 70%);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Hourglass neck */
+.hourglass-neck {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 50px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 100%);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 3;
+}
+
+/* Sand */
+.sand {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, var(--sand-light), var(--sand-dark));
+    border-radius: 0 0 50% 50% / 0 0 20px 20px;
+    transition: height 0.1s linear;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.top-sand {
+    top: 0;
+    bottom: auto;
+    border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+    background: linear-gradient(135deg, var(--sand-dark), var(--sand-light));
+}
+
+.bottom-sand {
+    bottom: 0;
+}
+
+/* Sand particles */
+.sand-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--sand-light);
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatParticle 5s ease-in-out infinite;
+}
+
+@keyframes floatParticle {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-50px) translateX(20px);
+        opacity: 0.3;
+    }
+}
+
+/* Sand fall effect */
+.sand-fall-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 40px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.sand-fall {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+        transparent 0%,
+        var(--sand-light) 30%,
+        var(--sand-dark) 70%,
+        transparent 100%);
+    border-radius: 50%;
+    filter: blur(2px);
+    display: none;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fill-sand {
+    0% { height: 10%; }
+    100% { height: 90%; }
+}
+
+@keyframes empty-sand {
+    0% { height: 90%; }
+    100% { height: 10%; }
+}
+
+@keyframes sand-fall {
+    0% {
+        transform: translateX(-50%) scaleY(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(-50%) scaleY(1.2);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateX(-50%) scaleY(0.8);
+        opacity: 0.8;
+    }
+}
+
+/* ========== HERO TEXT ========== */
+.hero-text {
+    text-align: left;
+}
+
+.animated-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.title-word {
+    display: inline-block;
+    background: linear-gradient(135deg, #fff 0%, var(--primary-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 0.8s ease forwards;
+}
+
+.title-word:nth-child(1) { animation-delay: 0.2s; }
+.title-word:nth-child(2) { animation-delay: 0.4s; margin: 0 15px; }
+.title-word:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    max-width: 500px;
+    position: relative;
+    animation: fadeIn 1s ease 0.8s both;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+    from { opacity: 0; }
+}
+
+.typing-cursor {
+    animation: blink 1s infinite;
+    margin-left: 3px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    animation: fadeIn 1s ease 1s both;
+}
+
+.cta-button {
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    box-shadow: 0 5px 20px rgba(255, 102, 0, 0.3);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 102, 0, 0.5);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: white;
+}
+
+.cta-button.secondary:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(181, 65, 7, 0.3);
+}
+
+/* ========== FLOATING PARTICLES ========== */
+.floating-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-hover);
+    border-radius: 50%;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle1 {
+    top: 20%;
+    left: 10%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.particle2 {
+    top: 60%;
+    right: 10%;
+    width: 6px;
+    height: 6px;
+    animation: float 12s ease-in-out infinite reverse;
+}
+
+.particle3 {
+    bottom: 15%;
+    left: 20%;
+    width: 3px;
+    height: 3px;
+    animation: float 10s ease-in-out infinite 2s;
+}
+
+.particle4 {
+    top: 30%;
+    right: 20%;
+    width: 5px;
+    height: 5px;
+    animation: float 15s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(100px, -50px) rotate(90deg);
+    }
+    50% {
+        transform: translate(50px, -100px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50px, -50px) rotate(270deg);
+    }
+}
+
+/* ========== FEATURES SECTION ========== */
+.features-section {
+    padding: 100px 50px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #fff, var(--primary-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 102, 0, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.feature-card:hover::before {
+    left: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.2);
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--primary-hover);
+}
+
+.feature-card p {
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: var(--dark-bg);
+    padding: 30px 50px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 102, 0, 0.2);
+}
+
+.all {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .animated-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .system-title {
+        font-size: 22px;
+    }
+    
+    .hero-section {
+        padding: 150px 20px 50px;
+    }
+    
+    .animated-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cta-button {
+        text-align: center;
+    }
+    
+    .features-section {
+        padding: 50px 20px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hourglass-container {
+        transform: scale(0.8);
+    }
+    
+    .animated-title {
+        font-size: 2rem;
+    }
+    
+    .title-word:nth-child(2) {
+        margin: 0 5px;
+    }
+    
+    .buttons-container {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .buttons-container button {
+        width: 100%;
+    }
+}

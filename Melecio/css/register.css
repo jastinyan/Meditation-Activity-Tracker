@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1500px;
+    width: 95%;
+    margin: 0 auto;
+}
+body{
+    background: linear-gradient(rgba(84, 84, 84, 0.715), rgba(39, 39, 39, 0.775)),url('../img/digital-art-style-yoga-illustration.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar{
+    position  : fixed;             
+    width: 100%;      
+    background-color: rgb(12, 19, 25);
+    z-index: 1000;
+    top: 0; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.463);
+    padding: 20px 0 20px 0;
+}
+.system-title{
+    font-size: 50px;
+    color: white;
+    margin-left: 50px;
+}
+
+.buttons-container {
+    position: fixed; /* Keeps the buttons in place regardless of scroll or zoom */
+    top: 30px; 
+    right: 30px; 
+    display: flex; 
+    gap: 20px; 
+}
+.btn1 {
+    padding: 10px;
+    background-color: rgb(181, 65, 7);
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    width: 100px; /* Fixed width for consistent sizing */
+    text-align: center; 
+    cursor: pointer;
+    transition: 0.2s ease;
+    border-radius: 20px;
+}
+.btn1 a {
+    text-decoration: none;
+    color: white;
+    display: block; /* Makes the link fill the button */
+    width: 100%;
+    height: 100%;
+}
+.btn1:hover {
+    background-color: rgb(12, 19, 25);
+}
+.btn2 {
+    padding: 10px ;
+    background-color: rgb(181, 65, 7);
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    width: 100px; /* Fixed width for consistent sizing */
+    text-align: center; /* Center the text inside */
+    cursor: pointer;
+    transition: 0.2s ease;
+    border-radius: 20px;
+}
+.btn2 a {
+    text-decoration: none;
+    color: white;
+    display: block; /* Makes the link fill the button */
+    width: 100%;
+    height: 100%;
+}
+.btn2:hover {
+    background-color: rgb(12, 19, 25);
+}
+.register-box{
+    width: 100%;
+    max-width: 980px;
+    background-color: rgba(255, 255, 255, 0.61);
+    border-radius: 8px;
+    padding: 40px 30px 40px 30px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.463);
+    border: 2px solid rgb(255, 0, 0);
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+.register-title{
+    font-family: "Abril Fatface", serif;
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: rgb(12, 19, 25);
+    font-style: italic;
+}
+.form{
+    width: 100%;
+    max-width: 280px;
+    box-sizing: border-box;
+}
+.input-field {
+    flex: 1 1 calc(25% - 10px);
+    margin-right: 10px; 
+    margin-bottom: 15px; 
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.input, .input-field select {
+    font-size: 16px;
+    padding: 12px;
+    width: 100%; /* Ensure it occupies the full width of its container */
+    border: 1px solid rgb(0, 42, 76);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.input:focus, .input-field select:focus {
+    border-color: rgb(181, 65, 7); /* Highlighted border */
+}
+.label {
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px; /* Adjust font size for consistency */
+    color: rgb(12, 19, 25);
+    margin-bottom: 5px;
+    font-weight: 500; /* A bit bolder for better readability */
+}
+.personal-info:nth-child(2) .input-field {
+    flex: 1 1 calc(25% - 10px); /* Match the sizing of the first row */
+}
+.btn{
+    margin-top: 10px;
+    padding: 16px 0 16px 0;
+    border: none;
+    background-color: rgb(12, 19, 25);
+    font-family: "Poppins", sans-serif;
+    color: white;
+    width: 20%;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.btn:hover{
+    background-color: rgb(181, 65, 7);
+}
+.create{
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    margin-top: 10px;
+}
+.create a{
+    font-style: italic;
+    color: rgb(181, 65, 7);
+    font-weight: 500;
+}
+.personal-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.account-info{
+    display: flex;
+    margin-bottom: 12px;
+}
+.address-info{
+    display: flex;
+    margin-bottom: 12px;
+}
+.personal-title{
+    display: flex;
+    margin-left: 8px;
+    font-style: italic;
+    color: rgb(12, 19, 25);
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.account-title{
+    display: flex;
+    margin-left: 8px;
+    font-style: italic;
+    color: rgb(12, 19, 25);
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.address-title{
+    display: flex;
+    margin-left: 8px;
+    font-style: italic;
+    color: rgb(12, 19, 25);
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.label{
+    font-size: 15px;
+}
+.form{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.footer{
+    background-color: rgb(12, 19, 25);
+    padding: 30px 0 30px 0;
+}
+.all{
+    color: rgb(135, 135, 135);
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,677 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* ========== RESET & VARIABLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary-color: rgb(181, 65, 7);
+    --primary-hover: rgb(255, 102, 0);
+    --dark-bg: rgb(12, 19, 25);
+    --success-green: #00c853;
+    --danger-red: #ff2e2e;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg-dark: rgba(255, 255, 255, 0.08);
+}
+
+/* ========== BODY ========== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+        url('../img/digital-art-style-yoga-illustration.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: var(--dark-bg);
+    z-index: 1000;
+    top: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.463);
+    padding: 20px 0;
+}
+
+.system-title {
+    font-size: 50px;
+    color: white;
+    margin-left: 50px;
+    font-family: 'Merriweather', serif;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 220px;
+    height: calc(100vh - 80px);
+    background: rgba(12,19,25,0.95);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    padding: 30px 20px;
+}
+
+.sidebar-header {
+    font-family: "Abril Fatface", serif;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin: 14px 0;
+    color: var(--primary-color);
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.sidebar a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255,255,255,0.2),
+            rgba(255,255,255,0.5),
+            rgba(255,255,255,0.2));
+    transform: skewX(-20deg);
+    transition: 0.5s;
+}
+
+.sidebar a:hover::before {
+    left: 120%;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    background: var(--primary-color);
+}
+
+.btn-logout {
+    margin: 20px;
+    padding: 10px 0;
+    text-align: center;
+    background: var(--primary-color);
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background: var(--dark-bg);
+    border: 1px solid #fff;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main {
+    margin-top: 50px;
+    margin-left: 220px;
+    padding: 40px 30px;
+    min-height: calc(100vh - 80px);
+    text-align: center;
+}
+
+.main h2 {
+    margin: 50px 0 25px;
+    font-size: 28px;
+}
+
+/* ========== TIMER SECTION ========== */
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.timer-circle {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary-color) 0deg, rgba(255,255,255,0.15) 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 20px rgba(255, 102, 0, 0.5);
+    transition: 0.3s ease;
+}
+
+.timer-inner {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(12, 19, 25, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(8px);
+}
+
+.timer-display {
+    font-size: 55px;
+    font-weight: bold;
+    color: white;
+}
+
+.timer-label {
+    margin-top: 5px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.timer-settings {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.timer-settings button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: white;
+    transition: 0.3s;
+}
+
+.timer-settings button:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.timer-settings span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.play-btn {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background: var(--success-green);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+.play-btn:hover {
+    opacity: 0.85;
+}
+
+.pause-mode {
+    background: #ff3d00 !important;
+}
+
+.timer-actions {
+    display: flex;
+    gap: 15px;
+    width: 420px;
+    justify-content: center;
+}
+
+.btn-discard,
+.btn-save {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-discard {
+    background: var(--danger-red);
+    color: white;
+}
+
+.btn-discard:hover {
+    background: #cc0000;
+}
+
+.btn-save {
+    background: #ff6600;
+    color: white;
+}
+
+.btn-save:hover {
+    background: #c24c00;
+}
+
+/* ========== SESSION FORM & HISTORY ========== */
+.session-form {
+    width: 520px;
+    background: var(--glass-bg);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    text-align: left;
+    box-shadow: 0px 0px 20px rgba(255, 102, 0, 0.3);
+}
+
+.session-form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.session-form input,
+.session-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.session-form textarea {
+    resize: none;
+}
+
+/* ========== SAVED SESSION TABLE ========== */
+.saved-session {
+    width: 750px;  /* Increased to accommodate notes column */
+    max-width: 100%;
+    background: var(--glass-bg);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    text-align: left;
+    box-shadow: 0px 0px 20px rgba(255, 102, 0, 0.3);
+    overflow-x: auto;
+}
+
+.saved-session h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: orange;
+}
+
+/* ========== HISTORY TABLE ========== */
+#historyTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    min-width: 700px; /* Ensures table doesn't get too compressed */
+}
+
+#historyTable th,
+#historyTable td {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 14px;
+}
+
+#historyTable th {
+    background-color: rgba(181,65,7,0.2);
+    color: #fff;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#historyTable td {
+    color: #fff;
+}
+
+#historyTable tbody tr:nth-child(even) {
+    background-color: var(--glass-bg-dark);
+}
+
+#historyTable tbody tr:hover {
+    background-color: rgba(255,102,0,0.15);
+    transition: 0.3s;
+}
+
+/* Notes column specific styling */
+#historyTable td:nth-child(6) {
+    max-width: 200px;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: left;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Empty notes styling */
+#historyTable td:nth-child(6):empty::before,
+#historyTable td:nth-child(6):contains("—") {
+    content: "—";
+    color: rgba(255,255,255,0.4);
+    font-style: normal;
+}
+
+/* ========== EMOJI BUTTONS ========== */
+.emoji-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.emoji-btn {
+    flex: 1;
+    text-align: center;
+    padding: 12px 5px;
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.12);
+    transition: 0.3s;
+    font-size: 13px;
+}
+
+.emoji-btn span {
+    font-size: 28px;
+    display: block;
+}
+
+.emoji-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.emoji-btn.active {
+    background: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ========== MODAL STYLES ========== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    inset: 0;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: rgba(12,19,25,0.98);
+    padding: 30px;
+    border-radius: 18px;
+    width: 500px;
+    max-width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(255,102,0,0.4);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+/* ========== MODAL SESSION DETAILS ========== */
+.session-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    background: var(--glass-bg-dark);
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.session-details label {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.session-details input,
+.session-details textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 14px;
+}
+
+.session-details input:focus,
+.session-details textarea:focus,
+.modern-select:focus,
+.modern-input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.session-details input[readonly] {
+    background: rgba(255,255,255,0.05);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ========== MODERN DROPDOWN STYLING ========== */
+.modern-select {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    font-size: 15px;
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+.modern-select:hover {
+    border-color: var(--primary-hover);
+    background-color: rgba(255,102,0,0.15);
+}
+
+.modern-select option {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 12px;
+}
+
+.modern-select optgroup {
+    background-color: rgba(0,0,0,0.3);
+    color: var(--primary-hover);
+    font-weight: 600;
+}
+
+/* Custom input for session name */
+.modern-input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    font-size: 15px;
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.modern-input:hover {
+    border-color: var(--primary-hover);
+    background-color: rgba(255,102,0,0.1);
+}
+
+.modern-input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+/* Modal buttons */
+.modal .btn-save {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    font-size: 16px;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal .btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255,102,0,0.4);
+}
+
+.modal .btn-save:active {
+    transform: translateY(0);
+}
+
+/* ========== SUCCESS TOAST ========== */
+.success-toast {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: linear-gradient(45deg, #00c853, #00e676);
+    padding: 15px 25px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateX(120%);
+    transition: 0.5s ease;
+    z-index: 5000;
+}
+
+.success-toast.show {
+    transform: translateX(0);
+}
+
+/* ========== HISTORY CARD (if used) ========== */
+.history-card {
+    background: var(--glass-bg-dark);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.history-card p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.history-card small {
+    color: rgba(255,255,255,0.7);
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background-color: var(--dark-bg);
+    padding: 25px 0;
+    margin-left: 220px;
+}
+
+.all {
+    color: rgb(135, 135, 135);
+    text-align: center;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 992px) {
+    .saved-session {
+        width: 650px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+    
+    .main {
+        margin-left: 180px;
+    }
+    
+    .footer {
+        margin-left: 180px;
+    }
+    
+    .session-form,
+    .saved-session {
+        width: 100%;
+    }
+    
+    .timer-actions {
+        width: 100%;
+    }
+    
+    .saved-session {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .main {
+        margin-left: 0;
+    }
+    
+    .footer {
+        margin-left: 0;
+    }
+    
+    #historyTable {
+        min-width: 600px;
+    }
+}

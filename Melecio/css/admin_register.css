@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(rgba(84, 84, 84, 0.715), rgba(39, 39, 39, 0.775)), url('../img/digital-art-style-yoga-illustration.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Registration Box */
+.register-box {
+    background-color: rgba(255, 255, 255, 0.61);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgb(255, 0, 0);
+    margin-bottom: 30px;
+}
+
+.form-section-title {
+    font-family: "Oswald", sans-serif;
+    color: rgb(12, 19, 25);
+    font-size: 20px;
+    margin: 25px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(181, 65, 7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-section-title i {
+    color: rgb(181, 65, 7);
+    font-size: 18px;
+}
+
+.form-section-title:first-of-type {
+    margin-top: 0;
+}
+
+/* Form Layout */
+.personal-info,
+.account-info,
+.address-info,
+.security-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.input-field {
+    flex: 1 1 calc(25% - 15px);
+    min-width: 200px;
+}
+
+.role-field .input-field {
+    flex: 1 1 100%;
+}
+
+.input,
+.input-field select,
+.role-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.input:focus,
+.input-field select:focus,
+.role-select:focus {
+    border-color: rgb(181, 65, 7);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(181, 65, 7, 0.1);
+}
+
+.label {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(12, 19, 25);
+    margin-bottom: 5px;
+}
+
+.required {
+    color: rgb(181, 65, 7);
+    margin-left: 3px;
+}
+
+/* Role Select Specific */
+.role-select {
+    background-color: #f8f9fa;
+    border-left: 4px solid #4CAF50;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.role-select option {
+    padding: 10px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.btn-submit,
+.btn-reset {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-submit {
+    background-color: rgb(181, 65, 7);
+    color: white;
+    flex: 0 1 auto;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.btn-submit:hover {
+    background-color: rgb(12, 19, 25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(181, 65, 7, 0.3);
+}
+
+.btn-reset {
+    background-color: #6c757d;
+    color: white;
+    flex: 0 1 auto;
+    min-width: 150px;
+    justify-content: center;
+}
+
+.btn-reset:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-submit i,
+.btn-reset i {
+    font-size: 16px;
+}
+
+.btn-submit:disabled,
+.btn-reset:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Validation Messages */
+#pwStrength,
+#pwMatch,
+#ageMessage {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* Footer */
+.footer {
+    background-color: rgb(12, 19, 25);
+    padding: 20px 0;
+    text-align: center;
+    margin-left: 260px;
+}
+
+.footer p {
+    color: rgb(135, 135, 135);
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .input-field {
+        flex: 1 1 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 80px;
+        overflow: visible;
+    }
+    
+    .sidebar-header span,
+    .sidebar h3,
+    .sidebar a span {
+        display: none;
+    }
+    
+    .sidebar a {
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    .sidebar a i {
+        margin: 0;
+        font-size: 20px;
+    }
+    
+    .dashboard-main {
+        margin-left: 80px;
+    }
+    
+    .footer {
+        margin-left: 80px;
+    }
+    
+    .role-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .auto-accept-badge {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .system-title {
+        margin-left: 0;
+        font-size: 20px;
+    }
+    
+    .admin-badge {
+        margin-right: 0;
+    }
+    
+    .welcome-section {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .input-field {
+        flex: 1 1 100%;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-submit,
+    .btn-reset {
+        width: 100%;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(181, 65, 7);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(12, 19, 25);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: rgb(181, 65, 7);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Success/Error Message Styling */
+.success-message,
+.error-message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Tooltip */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: rgb(12, 19, 25);
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+[data-tooltip]:hover:before {
+    opacity: 1;
+    visibility: visible;
+    bottom: 150%;
+}
+
+/* Additional form enhancements */
+.input[readonly] {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+select:required:invalid {
+    color: #999;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+option {
+    color: rgb(12, 19, 25);
+}
+
+/* Form field focus effects */
+.input-field {
+    position: relative;
+}
+
+.input-field .input:focus + .label,
+.input-field select:focus + .label {
+    color: rgb(181, 65, 7);
+}
+
+/* Password strength indicator */
+.password-strength {
+    height: 4px;
+    margin-top: 5px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.password-strength.weak {
+    background-color: #f44336;
+    width: 33%;
+}
+
+.password-strength.medium {
+    background-color: #ff9800;
+    width: 66%;
+}
+
+.password-strength.strong {
+    background-color: #4CAF50;
+    width: 100%;
+}
+
+/* Responsive font sizes */
+@media (max-width: 480px) {
+    .system-title {
+        font-size: 18px;
+    }
+    
+    .welcome-section h2 {
+        font-size: 20px;
+    }
+    
+    .form-section-title {
+        font-size: 18px;
+    }
+    
+    .register-box {
+        padding: 20px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .sidebar,
+    .navbar,
+    .footer,
+    .form-actions {
+        display: none;
+    }
+    
+    .dashboard-main {
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    .register-box {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
